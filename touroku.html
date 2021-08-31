@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ja">
+</html>
+    <body>
+        //データベースに接続
+        if(!$con = mysql_connect("localhost","mysql","password")){
+            echo"接続エラー";
+            exit;
+        }
+
+        //データベースを選択
+        if(!mysql_select_db("tsumiki",$con)){
+            echo"データベース選択エラー";
+            exit;
+        }
+
+        //フォームで送られてきたデータでINSSERT文を作成
+        $sql = "insert into tsumiki_tbk(name,age)values('$nm',$age)";
+
+        //SQLを実行
+        if(!$res = mysql_query($sql)){
+            echo"SQL実行時エラー";
+            exit;
+        }
+
+        //データベースから切断
+        mysql_close($con);
+
+        //メッセージ出力
+        echo"登録完了";
+        ?>
+    </body>
+</html>

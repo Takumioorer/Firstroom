@@ -1,0 +1,7 @@
+create table test
+ (
+ id       int auto_increment primary key  comment '番号',
+ test     varchar(32)                     comment 'テストの項目',
+ regist_date   datetime                   comment '登録日',
+ update_date   datetime                   comment '更新日'
+ );
